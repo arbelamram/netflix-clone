@@ -6,8 +6,9 @@ import requests from '../services/requests'
 import '../assets/style/Banner.css'
 
 function Banner() {
-    const [movie, setMovie] = useState()
-    
+    const [movie, setMovie] = useState()    
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -18,13 +19,18 @@ function Banner() {
                     ]
                 );
             } catch (error) {
-                // Handle error gracefully
                 console.error("Error fetching data:", error);
-                // Optionally set a state to indicate error
+                // Handle error gracefully
+            } finally {
+                setLoading(false); // Set loading state to false regardless of success or failure
             }
         }
         fetchData();
     }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; // Render a loading indicator while fetching data
+    }
     
 
     function truncate(str, n){
