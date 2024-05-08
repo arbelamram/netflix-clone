@@ -4,8 +4,7 @@ import Row from './components/Row'
 import Banner from './components/Banner'
 import Nav from './components/Nav'
 
-import requests from './requests'
-
+import requests from './services/requests'
 import './assets/style/App.css'
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
       <Row 
         title="Netflix Originals" 
         fetchUrl={requests.fetchNetflixOriginals} 
-        isLargeRow // by default it is: isLargeRow={true}
+        isLargeRow
       />
       <Row title="Trendings Now" fetchUrl={requests.fetchTranding} />
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
@@ -26,7 +25,7 @@ function App() {
       <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
       <Row title="Documentries" fetchUrl={requests.fetchDocumentryMovies} />
     </div>
-  );
+  )
 }
 
 export default App
