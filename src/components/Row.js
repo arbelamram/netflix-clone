@@ -1,50 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
-import axios from '../axios';
-import YouTube from "react-youtube";
-import movieTrailer from "movie-trailer";
+import axios from '../services/axios'
+import YouTube from "react-youtube"
+import movieTrailer from "movie-trailer"
 
-import '../assets/style/Row.css';
+import '../assets/style/Row.css'
 
-const base_url = "https://image.tmdb.org/t/p/original/";
+const base_url = "https://image.tmdb.org/t/p/original/"
 
 function Row({ title, fetchUrl, isLargeRow }) {
-    const [movies, setMovies] = useState([]);
-    const [trailerUrl, setTraileUrl] = useState("");
+    const [movies, setMovies] = useState([])
+    const [trailerUrl, setTraileUrl] = useState("")
 
-    // A snippet of code which runs based on a specific condition/variable.
     useEffect(() => {
-        // if [], run once when the row loads, and don't run again.
-        // if [movies], run once when the row loads, and run every single time 'movies' changes.
         async function fetchData() {
-            const request = await axios.get(fetchUrl);
-            setMovies(request.data.results);
-            return request;
+            const request = await axios.get(fetchUrl)
+            setMovies(request.data.results)
+            return request
         }
-        fetchData();
-        /* Whenever we use anything inside of a useEffect, if there is any variable that is been "pulled" from outside
-        we have to include it inside of the array [] - because it is depended on that variable, so it is a dependancy
-        so every time 'fetchUrl' changes we have to update the useEffect. */
-    }, [fetchUrl]); 
+        fetchData()
+    }, [fetchUrl]) 
 
     const opts = {
         height: "390",
         width: "100%",
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
         },
-    };
+    }
 
     const handleClick = (movie) => {
         if(trailerUrl) {
-            setTraileUrl('');
+            setTraileUrl('')
         } else {
             movieTrailer(movie?.name || movie?.title || "")
             .then((url) => {
-                // https://www.youtube.com/watch/?v= {some videoId} - we only need the videoId, so:
-                const urlParams = new URLSearchParams(new URL(url).search);
-                setTraileUrl(urlParams.get('v'));
+                const urlParams = new URLSearchParams(new URL(url).search)
+                setTraileUrl(urlParams.get('v'))
             })
             .catch(error => console.log(error))
         }
@@ -68,7 +60,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
             </div>
             {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/> }
         </div>
-    );
+    )
 }
 
 export default Row

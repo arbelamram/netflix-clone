@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from 'react'
 
-import axios from '../axios';
-import requests from '../requests';
+import axios from '../services/axios'
+import requests from '../services/requests'
 
 import '../assets/style/Banner.css'
 
 function Banner() {
-    const [movie, setMovie] = useState();
+    const [movie, setMovie] = useState()
     
-    // useeffect is a piece of code that run based on a given condition
     useEffect(() => {
         async function fetchData() {
-            const request = await axios.get(requests.fetchNetflixOriginals);
+            const request = await axios.get(requests.fetchNetflixOriginals)
             setMovie(
                 request.data.results[
                     Math.floor(Math.random() * request.data.results.length-1)
                 ]
-            );
-            return request;
+            )
+            return request
         }
-        fetchData();
-    }, []);
+        fetchData()
+    }, [])
 
-    console.log(movie);
-
-    // copied from stackOverflow - 
     function truncate(str, n){
-        return str?.length > n ? str.substr(0, n-1) + "..." : str;
+        return str?.length > n ? str.substr(0, n-1) + "..." : str
     }
 
     return (
@@ -53,7 +49,7 @@ function Banner() {
 
             <div className="banner_fade_buttom" />
         </header>
-    );
+    )
 }
 
-export default Banner;
+export default Banner

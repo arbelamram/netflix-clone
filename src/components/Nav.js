@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import '../assets/style/Nav.css';
+import React, { useState, useEffect } from 'react'
+import '../assets/style/Nav.css'
 
 function Nav() {
 
-    const [show, handleShow] = useState(false);
+    const [show, handleShow] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
-                handleShow(true);
+                handleShow(true)
             } else {
-                handleShow(false);
+                handleShow(false)
             }
-        };
+        }
     
-        // Add scroll event listener
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll)
     
-        // Remove scroll event listener when component unmounts
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
     
 
     return (
@@ -37,7 +35,7 @@ function Nav() {
                 alt="Netflix user Logo"
             />
         </div>
-    );
+    )
 }
 
-export default Nav;
+export default Nav
