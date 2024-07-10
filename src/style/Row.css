@@ -15,15 +15,15 @@
 }
 
 .row_poster {
-  object-fit: contain;
-  width: 100%;
+  object-fit: cover; /* Use cover for better image cropping */
+  width: auto; /* Adjust width for responsiveness */
   max-height: 100px;
   margin-right: 10px;
-  transition: transform 450ms;
+  transition: transform 0.3s ease; /* Faster transition for smoother effect */
 }
 
 .row_poster:hover {
-  transform: scale(1.08);
+  transform: scale(1.05); /* Adjust scaling effect */
 }
 
 .row_posterLarge {
@@ -31,5 +31,5 @@
 }
 
 .row_posterLarge:hover {
-  transform: scale(1.09);
+  transform: scale(1.06); /* Adjust scaling effect */
 }
