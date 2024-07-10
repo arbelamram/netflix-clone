@@ -4,7 +4,7 @@ import axios from '../services/axios'
 import YouTube from "react-youtube"
 import movieTrailer from "movie-trailer"
 
-import '../assets/style/Row.css'
+import '../style/Row.css'
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 

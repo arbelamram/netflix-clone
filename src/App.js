@@ -5,7 +5,7 @@ import Banner from './components/Banner'
 import Nav from './components/Nav'
 
 import requests from './services/requests'
-import './assets/style/App.css'
+import './style/App.css'
 
 function App() {
   return (
