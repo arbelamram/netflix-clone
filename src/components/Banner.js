@@ -4,20 +4,19 @@ import requests from '../services/requests';
 import '../style/Banner.css';
 
 function Banner() {
-    const [movie, setMovie] = useState();
+    const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const request = await axios.get(requests.fetchNetflixOriginals);
-                setMovie(
-                    request.data.results[
-                        Math.floor(Math.random() * request.data.results.length-1)
-                    ]
-                );
+                const randomIndex = Math.floor(Math.random() * request.data.results.length);
+                setMovie(request.data.results[randomIndex]);
             } catch (error) {
                 console.error("Error fetching data:", error);
+                setError("Failed to fetch data. Please try again later.");
             } finally {
                 setLoading(false);
             }
@@ -27,6 +26,10 @@ function Banner() {
 
     if (loading) {
         return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
     }
 
     function truncate(str, n) {
