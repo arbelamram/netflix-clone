@@ -9,17 +9,21 @@ import '../style/Row.css'
 const base_url = "https://image.tmdb.org/t/p/original/"
 
 function Row({ title, fetchUrl, isLargeRow }) {
-    const [movies, setMovies] = useState([])
-    const [trailerUrl, setTraileUrl] = useState("")
+    const [movies, setMovies] = useState([]);
+    const [trailerUrl, setTrailerUrl] = useState("");
 
     useEffect(() => {
         async function fetchData() {
-            const request = await axios.get(fetchUrl)
-            setMovies(request.data.results)
-            return request
+            try {
+                const request = await axios.get(fetchUrl);
+                setMovies(request.data.results);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                // Handle error state or notify user
+            }
         }
-        fetchData()
-    }, [fetchUrl]) 
+        fetchData();
+    }, [fetchUrl]);
 
     const opts = {
         height: "390",
@@ -27,20 +31,20 @@ function Row({ title, fetchUrl, isLargeRow }) {
         playerVars: {
             autoplay: 1,
         },
-    }
+    };
 
     const handleClick = (movie) => {
-        if(trailerUrl) {
-            setTraileUrl('')
+        if (trailerUrl) {
+            setTrailerUrl('');
         } else {
             movieTrailer(movie?.name || movie?.title || "")
-            .then((url) => {
-                const urlParams = new URLSearchParams(new URL(url).search)
-                setTraileUrl(urlParams.get('v'))
-            })
-            .catch(error => console.log(error))
+                .then((url) => {
+                    const urlParams = new URLSearchParams(new URL(url).search);
+                    setTrailerUrl(urlParams.get('v'));
+                })
+                .catch(error => console.log(error));
         }
-    }
+    };
 
     return (
         <div className="row">
