@@ -1,77 +1,101 @@
-## App Demonstration
+# Netflix Clone
 
-https://github.com/user-attachments/assets/6fe0aee5-c5df-48bd-af45-6ae0194871cf
+![Python](https://img.shields.io/badge/ReactJS_hooks-blue.svg)
+![Pygame](https://img.shields.io/badge/axios-yellow.svg)
+![Pygame](https://img.shields.io/badge/react_youtube-purple.svg)
+![Pygame](https://img.shields.io/badge/movie_trailer-darkgreen.svg)
+![License](https://img.shields.io/badge/license-MIT-black.svg)
+
+### Overview
+A Netflix clone built with ReactJS that allows users to browse and watch trailers of popular movies and TV shows. The application uses the TMDb API to fetch data and `react-youtube` to play movie trailers.</br>
+
+#### Video Demonstration
+
+Watch a demo of the project [here](https://github.com/user-attachments/assets/6fe0aee5-c5df-48bd-af45-6ae0194871cf)
 
 
+## Table of Contents
+- [Project Description](#project-description)
+  - [Technologies and tools](#technologies-and-tools)
+- [Usage](#usage)
+  - [Getting Started](#getting-started)
+  - [Running the Application](#running-the-application)
+- [Additional Information](#additional-information)
+  - [Contributing](#contributing)
+  - [Contact](#contact)
+  - [Acknowledgments](#acknowledgments)
+  - [License](#license)
 
+## Project Description
+This project is a simple clone of Netflix, focusing on the front-end aspect of the application. It showcases the use of ReactJS hooks (`useState` and `useEffect`), Axios for API requests, and integrates YouTube trailers using `react-youtube` and `movie-trailer` libraries. The application allows users to browse through different categories of movies, view details, and watch trailers.</br>
 
-# Getting Started with Create React App
+### Technologies and Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- **ReactJS**: A JavaScript library for building user interfaces.
+  - **useState**: A React hook for managing state in functional components.
+  - **useEffect**: A React hook for performing side effects in functional components.
+- **Axios**: A promise-based HTTP client for making API requests.
+- **react-youtube**: A React component to embed YouTube videos.
+- **movie-trailer**: A library to find movie trailers on YouTube.
+- **CSS**: Styling the components.
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+### Getting Started
+To get a local copy of this project up and running, follow these steps.
 
-### `npm start`
+**Prerequisites**:
+  - Node.js and npm installed on your machine.
+  - A TMDb API key.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the Repository**:
+  ```sh
+  git clone https://github.com/yourusername/netflix-clone.git
+  cd netflix-clone
+  ```
 
-### `npm test`
+2. **Install dependencies**:
+    ```sh
+    npm install
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Create a `.env` file in the root directory and add your TMDb API key:
+  ```env
+  REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+  ```
 
-### `npm run build`
+### Running the Application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Start the development server:
+    ```sh
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Open your browser and go to `http://localhost:3000` to see the application in action.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Additional Information
 
-### `npm run eject`
+### Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you have any questions or suggestions, feel free to reach out:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Email: [ArbelAmram@gmail.com](mailto:arbelamram@gmail.com)
 
-## Learn More
+### Acknowledgments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Resources: [Badges](https://img.shields.io)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### License
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
